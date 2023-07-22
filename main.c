@@ -2,14 +2,12 @@
 #include <stdlib.h>     // Library for basic functions
 #include <time.h>		// Library for Srand function
 
-
-// Team Sous-marin Pro Max
 // Name : Akilesh Subhadu, Student ID : M00851681
-// Name : Harshal Chawla, Student ID : M00909042
+
 
 // The use of function helps to write the code once and use it many times rather writing the code again and again
 // * To declare pointer = indirection operator(value at address)
-// why file pointer should be null? To initialize a pointer variable when that pointer variable hasn’t been assigned any valid memory address yet
+// why file pointer should be null? To initialize a pointer variable when that pointer variable hasnâ€™t been assigned any valid memory address yet
 // rand() generates a number from 0-32,767
 // & at the address of
 
