@@ -122,8 +122,8 @@ int main()
 
 
     char *welcome = "welcome.txt";
-    char *start_rolling = "START.txt";       
-    char *Num_occurences = "OCCURRENCES.txt";
+    char *start_rolling = "start.txt";       
+    char *Num_occurences = "occurences.txt";
 
 
     Drawing(welcome);                   
