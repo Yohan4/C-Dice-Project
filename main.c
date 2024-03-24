@@ -9,13 +9,11 @@ void Drawing(char*Name_Of_File)
     FILE *pfile = NULL;                       
     char buffer[256];                         
     pfile = fopen(Name_Of_File, "r");         
-    while (fgets(buffer,256, pfile) != NULL)  
-                                              
+    while (fgets(buffer,256, pfile) != NULL)                                      
     {
         printf("%s", buffer);               
     }
-    fclose(pfile);                           
-   
+    fclose(pfile);                            
 }
 
 // Function to validate the number of faces input by the user.
@@ -62,8 +60,7 @@ int throws_validation()
 }
 
 // Function to generate a specified number of random numbers within a range and store them in an array.
-void Generate_Randomnumber(int min, int max, int Throws, int *random_numberArray)  
-                                                                              
+void Generate_Randomnumber(int min, int max, int Throws, int *random_numberArray)                                                                              
 {                                                                             
     srand(time(0));                                                          
     int i;
@@ -76,40 +73,39 @@ void Generate_Randomnumber(int min, int max, int Throws, int *random_numberArray
 }
 
 // Function to output the generated random numbers, with a delay for a smaller number of throws.
-void Output_Randomvalues(int *random_numberArray, int Throws)                
-{                                                                            
-
-    for (int i = 0; i < Throws; i++)                                         
-    {   if (Throws <= 20)
+void Output_Randomvalues(int *random_numberArray, int Throws)
+{
+    for (int i = 0; i < Throws; i++)
+    {
+        if (Throws <= 20)
         {
-        printf("\n%d\n", *random_numberArray);                               
-        random_numberArray = random_numberArray +1;                          
-        usleep(500000);                                                      
-        else                                                                 
+            printf("\n%d\n", *random_numberArray);
+            random_numberArray = random_numberArray + 1;
+            usleep(500000);
+        }
+        else
         {
-        printf("\n%d\n", *random_numberArray);
-        random_numberArray = random_numberArray +1;
-
+            printf("\n%d\n", *random_numberArray);
+            random_numberArray = random_numberArray + 1;
         }
     }
 }
 
 // Function to calculate and print the occurrence and percentage of each face value in the throw results.
-void occurences_And_Percentage(int Faces,int Throws, char percentage,int *random_numberArray, int occurrence)
+void occurences_And_Percentage(int Faces, int Throws, char percentage, int *random_numberArray)
 {
-     for (int i = 1; i < (Faces + 1); i++)                                                      
-        occurrence = 0;                                                                         
-        for (int j = 1; j < (Throws + 1); j++)                                                  
+    for (int i = 1; i <= Faces; i++)
+    {
+        int occurrence = 0;
+        for (int j = 0; j < Throws; j++)
         {
-            if (*random_numberArray == i)                                                      
+            if (random_numberArray[j] == i)
             {
-                occurrence = occurrence + 1;                                                    
+                occurrence++;
             }
-            random_numberArray = random_numberArray + 1 ;                                       
         }
-        random_numberArray = random_numberArray - Throws;                                       
-        printf(" \n occurrences of %d : %.2lf %c \n  ", i, ((occurrence / ((double)Throws)) * 100), percentage); 
-        usleep(500000);                                                                         
+        printf(" \n occurrences of %d : %.2lf %c \n  ", i, ((occurrence / ((double)Throws)) * 100), percentage);
+        usleep(500000);
     }
 }
 
@@ -149,8 +145,7 @@ int main()
 
     Drawing(Num_occurences);                                    
     sleep(1);
-    occurences_And_Percentage(Faces, Throws,percentage,random_numberArray,occurrence);  
-    printf("\n--------------------------------------------------------------------------------------------END OF PROGRAM----------------------------------------------------------------------------------------------------------");
-
+    occurences_And_Percentage(Faces, Throws, percentage, random_numberArray);  
+    printf("\n--------------------------- END OF PROGRAM ---------------------------\n");
     return 0;
 }
